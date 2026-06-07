@@ -1,0 +1,286 @@
+/* =========================================================================
+   VaakPod — Indian Design System
+   Design tokens, reset, and global styles
+   ========================================================================= */
+
+/* ── Design Tokens ──────────────────────────────────────────────────────── */
+:root {
+  /* Primary Palette — Indian Tricolour + Peacock */
+  --saffron:          #FF9933;
+  --saffron-deep:     #E8860A;
+  --saffron-light:    #FFB366;
+  --saffron-glow:     rgba(255, 153, 51, 0.25);
+  --indian-green:     #138808;
+  --green-muted:      #1a6b12;
+  --green-light:      #2db821;
+  --navy-chakra:      #000080;
+  --peacock-blue:     #1a5276;
+  --peacock-teal:     #0e8a7d;
+
+  /* Secondary — Earthy */
+  --terra-cotta:      #C2703E;
+  --turmeric:         #D4A843;
+  --turmeric-muted:   #C49B3A;
+  --rosewood:         #65000B;
+  --ivory:            #FFFFF0;
+  --ivory-warm:       #FFF8EE;
+  --cream:            #FDF6EC;
+
+  /* Accents */
+  --gold-foil:        #D4AF37;
+  --gold-light:       #F0D060;
+  --indigo:           #3F51B5;
+  --indigo-deep:      #1A237E;
+  --pomegranate:      #C62828;
+  --diya-amber:       #F5A623;
+  --diya-glow:        rgba(245, 166, 35, 0.35);
+
+  /* Neutrals — warm undertone */
+  --bg-primary:       #1a1028;
+  --bg-secondary:     #241838;
+  --bg-card:          #2a1e3d;
+  --bg-card-hover:    #33264a;
+  --bg-glass:         rgba(42, 30, 61, 0.85);
+  --surface-1:        #362a50;
+  --surface-2:        #443660;
+  --text-primary:     #F5F0E8;
+  --text-secondary:   #B8A9C8;
+  --text-muted:       #8A7A9C;
+  --border-subtle:    rgba(212, 175, 55, 0.15);
+  --border-gold:      rgba(212, 175, 55, 0.3);
+
+  /* Typography */
+  --font-display:     'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+  --font-body:        'Inter', 'Noto Sans', system-ui, sans-serif;
+  --font-devanagari:  'Tiro Devanagari Hindi', serif;
+  --leading-body:     1.75;
+  --leading-heading:  1.2;
+  --letter-wide:      0.04em;
+  --letter-tight:     -0.01em;
+
+  /* Spacing */
+  --space-xs:    0.25rem;
+  --space-sm:    0.5rem;
+  --space-md:    1rem;
+  --space-lg:    1.5rem;
+  --space-xl:    2rem;
+  --space-2xl:   3rem;
+  --space-3xl:   4rem;
+  --space-4xl:   6rem;
+
+  /* Radii */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-arch: 24px 24px 8px 8px;
+
+  /* Shadows */
+  --shadow-soft:    0 4px 24px rgba(0, 0, 0, 0.2);
+  --shadow-glow:    0 0 40px rgba(255, 153, 51, 0.12);
+  --shadow-gold:    0 0 20px rgba(212, 175, 55, 0.15);
+  --shadow-deep:    0 8px 40px rgba(0, 0, 0, 0.35);
+
+  /* Motion */
+  --ease-mudra:     cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast:  0.2s;
+  --duration-base:  0.35s;
+  --duration-slow:  0.5s;
+  --duration-gentle: 0.8s;
+
+  /* Touch targets */
+  --touch-min:      44px;
+}
+
+
+/* ── Reset & Base ───────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--leading-body);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--saffron);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-mudra);
+}
+a:hover {
+  color: var(--gold-foil);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* ── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--saffron);
+  color: var(--bg-primary);
+}
+
+
+/* ── Utility Classes ────────────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.devanagari-accent {
+  font-family: var(--font-devanagari);
+  color: var(--text-muted);
+  letter-spacing: var(--letter-wide);
+  user-select: none;
+}
+
+/* ── Rangoli Divider ────────────────────────────────────────────────────── */
+.rangoli-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+}
+.rangoli-divider::before,
+.rangoli-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-gold),
+    var(--gold-foil),
+    var(--border-gold),
+    transparent
+  );
+}
+.rangoli-divider .rangoli-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold-foil);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--diya-glow);
+  animation: diyaPulse 3s ease-in-out infinite;
+}
+
+/* ── Gold Foil Gradient Text ────────────────────────────────────────────── */
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-foil), var(--gold-light), var(--turmeric), var(--gold-foil));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 6s ease-in-out infinite;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes goldShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes diyaPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px var(--diya-glow);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 20px var(--diya-glow), 0 0 40px rgba(245, 166, 35, 0.15);
+    opacity: 0.8;
+  }
+}
+
+@keyframes mandalaRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes peacockShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Focus States (accessibility) ───────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── High Contrast Media Query ──────────────────────────────────────────── */
+@media (prefers-contrast: high) {
+  :root {
+    --bg-primary:     #000000;
+    --bg-card:        #1a1a1a;
+    --text-primary:   #ffffff;
+    --text-secondary: #e0e0e0;
+    --border-subtle:  rgba(255, 255, 255, 0.3);
+  }
+}
+
+.v2-badge {
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, var(--gold-foil), var(--saffron));
+  color: #121212;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+

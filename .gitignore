@@ -1,0 +1,7 @@
+misc./docs
+.gemini
+.vscode
+.env
+.opencode
+.github/*.md
+.DS_Store

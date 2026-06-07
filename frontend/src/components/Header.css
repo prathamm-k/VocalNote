@@ -1,0 +1,99 @@
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.vaak-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  background: var(--bg-glass);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: diyaPulse 3s ease-in-out infinite;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: var(--letter-wide);
+  line-height: 1.2;
+}
+
+.brand-tagline {
+  font-size: 0.7rem;
+  margin-top: 1px;
+  opacity: 0.6;
+}
+
+/* ── Server Status Indicator ────────────────────────────────────────────── */
+.nav-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 100px;
+  background: rgba(19, 136, 8, 0.1);
+  border: 1px solid rgba(19, 136, 8, 0.25);
+  font-size: 0.75rem;
+  color: var(--green-light);
+  font-weight: 500;
+  letter-spacing: var(--letter-wide);
+  text-transform: uppercase;
+}
+
+.status-diya {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--indian-green);
+  box-shadow: 0 0 8px rgba(19, 136, 8, 0.5);
+  animation: diyaPulse 2.5s ease-in-out infinite;
+}
+
+.status-text {
+  line-height: 1;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .header-inner {
+    padding: var(--space-sm) var(--space-md);
+  }
+  .brand-name {
+    font-size: 1.2rem;
+  }
+  .brand-tagline {
+    font-size: 0.6rem;
+  }
+  .status-text {
+    display: none;
+  }
+}
+
+

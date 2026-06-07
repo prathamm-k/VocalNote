@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" opacity="0.05">
+  <g stroke="currentColor" stroke-width="0.5">
+    <!-- Geometric border tile inspired by Jaipur blue pottery -->
+    <!-- Central flower -->
+    <circle cx="50" cy="50" r="8"/>
+    <circle cx="50" cy="50" r="4"/>
+    <circle cx="50" cy="50" r="1.5" fill="currentColor"/>
+    <!-- 8 petals around center -->
+    <ellipse cx="50" cy="35" rx="4" ry="8"/>
+    <ellipse cx="50" cy="65" rx="4" ry="8"/>
+    <ellipse cx="35" cy="50" rx="8" ry="4"/>
+    <ellipse cx="65" cy="50" rx="8" ry="4"/>
+    <ellipse cx="39" cy="39" rx="4" ry="8" transform="rotate(45 39 39)"/>
+    <ellipse cx="61" cy="39" rx="4" ry="8" transform="rotate(-45 61 39)"/>
+    <ellipse cx="39" cy="61" rx="4" ry="8" transform="rotate(-45 39 61)"/>
+    <ellipse cx="61" cy="61" rx="4" ry="8" transform="rotate(45 61 61)"/>
+    <!-- Corner dots -->
+    <circle cx="10" cy="10" r="2" fill="currentColor"/>
+    <circle cx="90" cy="10" r="2" fill="currentColor"/>
+    <circle cx="10" cy="90" r="2" fill="currentColor"/>
+    <circle cx="90" cy="90" r="2" fill="currentColor"/>
+    <!-- Edge arcs -->
+    <path d="M25,0 Q50,15 75,0"/>
+    <path d="M25,100 Q50,85 75,100"/>
+    <path d="M0,25 Q15,50 0,75"/>
+    <path d="M100,25 Q85,50 100,75"/>
+    <!-- Diagonal connecting lines -->
+    <line x1="15" y1="15" x2="35" y2="35" stroke-dasharray="2,3"/>
+    <line x1="85" y1="15" x2="65" y2="35" stroke-dasharray="2,3"/>
+    <line x1="15" y1="85" x2="35" y2="65" stroke-dasharray="2,3"/>
+    <line x1="85" y1="85" x2="65" y2="65" stroke-dasharray="2,3"/>
+  </g>
+</svg>

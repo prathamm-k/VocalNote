@@ -1,0 +1,149 @@
+/* ── Status Bar ──────────────────────────────────────────────────────────── */
+.status-bar-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  animation: floatUp var(--duration-base) var(--ease-mudra) both;
+}
+
+.status-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+}
+
+.status-card--processing {
+  border-color: rgba(255, 153, 51, 0.25);
+  background: linear-gradient(135deg, rgba(255, 153, 51, 0.05), var(--bg-card));
+}
+
+.status-card--success {
+  border-color: rgba(19, 136, 8, 0.3);
+  background: linear-gradient(135deg, rgba(19, 136, 8, 0.06), var(--bg-card));
+}
+
+.status-card--error {
+  border-color: rgba(198, 40, 40, 0.3);
+  background: linear-gradient(135deg, rgba(198, 40, 40, 0.06), var(--bg-card));
+}
+
+.status-card-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.status-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.status-message {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.status-message--error {
+  color: #ef5350;
+}
+
+/* ── Diya Flame Animation ───────────────────────────────────────────────── */
+.status-diya-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24px;
+}
+
+.diya-flame {
+  width: 8px;
+  height: 12px;
+  background: radial-gradient(ellipse, var(--gold-light), var(--saffron), transparent);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: flameFlicker 0.8s ease-in-out infinite alternate;
+  box-shadow: 0 0 8px var(--diya-glow), 0 0 20px rgba(245, 166, 35, 0.2);
+}
+
+.diya-body {
+  width: 16px;
+  height: 6px;
+  background: linear-gradient(to bottom, var(--terra-cotta), var(--rosewood));
+  border-radius: 0 0 50% 50%;
+  margin-top: -2px;
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: scaleX(1) scaleY(1);
+    opacity: 1;
+  }
+  25% {
+    transform: scaleX(0.85) scaleY(1.1) skewX(2deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scaleX(1.1) scaleY(0.9) skewX(-1deg);
+    opacity: 1;
+  }
+  75% {
+    transform: scaleX(0.9) scaleY(1.05) skewX(1deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scaleX(1.05) scaleY(0.95);
+    opacity: 1;
+  }
+}
+
+/* ── Progress Bar ───────────────────────────────────────────────────────── */
+.status-progress {
+  margin-top: var(--space-sm);
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  border-radius: 100px;
+  background: var(--surface-1);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 35%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold-foil), var(--indian-green));
+  animation: indeterminateProgress 2s var(--ease-mudra) infinite;
+}
+
+@keyframes indeterminateProgress {
+  0% {
+    transform: translateX(-100%);
+    width: 35%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    transform: translateX(350%);
+    width: 35%;
+  }
+}
+
+.progress-hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+}
+
+/* ── Mobile ─────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .status-bar-wrapper {
+    padding: 0 var(--space-md);
+  }
+}
