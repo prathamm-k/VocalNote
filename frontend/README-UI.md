@@ -1,6 +1,6 @@
-# VaakPod — UI Design System
+# VocalNote — UI Design System
 
-> **वाक्पॉड** — *Vaak* (वाक्) means "speech/voice" in Sanskrit.
+> **वोकलनोट** — *Vaak* (वाक्) means "speech/voice" in Sanskrit.
 
 ## Design Philosophy
 

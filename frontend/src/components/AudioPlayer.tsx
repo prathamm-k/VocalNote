@@ -68,7 +68,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioUrl }) => {
 
         <div className="audio-player-header">
           <span className="audio-label devanagari-accent">आपका पॉडकास्ट</span>
-          <h3 className="audio-title gold-text">Your Podcast is Ready</h3>
+          <h3 className="audio-title warm-text">Your podcast is ready</h3>
         </div>
 
         {/* Custom Audio Player Card */}

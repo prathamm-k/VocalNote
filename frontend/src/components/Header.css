@@ -1,21 +1,26 @@
-/* ── Header ──────────────────────────────────────────────────────────────── */
+/* ── Header — Floating Island Nav ────────────────────────────────────────── */
 .vaak-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(20px) saturate(1.6);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
-  background: var(--bg-glass);
-  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-md) var(--space-lg) 0;
+  display: flex;
+  justify-content: center;
 }
 
-.header-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: var(--space-md) var(--space-lg);
+.header-island {
+  max-width: 680px;
+  width: 100%;
+  padding: var(--space-sm) var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: var(--radius-pill);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
 }
 
 .header-brand {
@@ -24,55 +29,45 @@
   gap: var(--space-sm);
 }
 
-.brand-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: diyaPulse 3s ease-in-out infinite;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-
 .brand-name {
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: var(--letter-wide);
-  line-height: 1.2;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: var(--letter-tight);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .brand-tagline {
-  font-size: 0.7rem;
-  margin-top: 1px;
-  opacity: 0.6;
+  font-size: 0.65rem;
+  opacity: 0.4;
+  line-height: 1;
 }
 
 /* ── Server Status Indicator ────────────────────────────────────────────── */
 .nav-status {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-xs) var(--space-md);
-  border-radius: 100px;
-  background: rgba(19, 136, 8, 0.1);
-  border: 1px solid rgba(19, 136, 8, 0.25);
-  font-size: 0.75rem;
-  color: var(--green-light);
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(45, 122, 58, 0.08);
+  border: 1px solid rgba(45, 122, 58, 0.2);
+  font-size: 0.7rem;
+  color: var(--success-light);
   font-weight: 500;
   letter-spacing: var(--letter-wide);
   text-transform: uppercase;
 }
 
-.status-diya {
-  width: 8px;
-  height: 8px;
+.status-dot {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--indian-green);
-  box-shadow: 0 0 8px rgba(19, 136, 8, 0.5);
+  background: var(--success);
+  box-shadow: 0 0 6px rgba(45, 122, 58, 0.4);
   animation: diyaPulse 2.5s ease-in-out infinite;
 }
 
@@ -82,18 +77,19 @@
 
 /* ── Mobile ─────────────────────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  .header-inner {
-    padding: var(--space-sm) var(--space-md);
+  .vaak-header {
+    padding: var(--space-sm) var(--space-md) 0;
+  }
+  .header-island {
+    padding: var(--space-xs) var(--space-md);
   }
   .brand-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   .brand-tagline {
-    font-size: 0.6rem;
+    display: none;
   }
   .status-text {
     display: none;
   }
 }
-
-

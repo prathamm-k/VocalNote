@@ -1,89 +1,72 @@
-/* ── Features Section ────────────────────────────────────────────────────── */
+/* ── Features Section — Steps Layout ─────────────────────────────────────── */
 .features-section {
-  padding: var(--space-2xl) var(--space-lg) var(--space-3xl);
-  position: relative;
+  padding: var(--space-3xl) var(--space-lg) var(--space-4xl);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .features-inner {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
-}
-
-.features-header {
-  text-align: center;
-  margin-bottom: var(--space-2xl);
-}
-
-.features-kicker {
-  font-size: 0.78rem;
-  display: block;
-  margin-bottom: var(--space-xs);
-  opacity: 0.45;
 }
 
 .features-title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 800;
+  letter-spacing: var(--letter-tight);
   color: var(--text-primary);
+  margin-bottom: var(--space-2xl);
 }
 
 
-/* ── Feature Grid ───────────────────────────────────────────────────────── */
-.features-grid {
+/* ── Steps Grid — Asymmetric ───────────────────────────────────────────── */
+.features-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
 }
 
 
-/* ── Feature Card — Mughal Arch Top ─────────────────────────────────────── */
-.feature-card {
+/* ── Individual Step ───────────────────────────────────────────────────── */
+.feature-step {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-arch);
-  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
   gap: var(--space-sm);
   position: relative;
-  transition: all var(--duration-base) var(--ease-mudra);
-  animation: floatUp var(--duration-gentle) var(--ease-mudra) both;
-  overflow: hidden;
+  transition: all var(--duration-base) var(--ease-out);
+  animation: fadeSlideUp var(--duration-gentle) var(--ease-out) both;
 }
 
-.feature-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-arch);
-  background: radial-gradient(
-    ellipse at 50% 0%,
-    rgba(255, 153, 51, 0.06),
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity var(--duration-base) var(--ease-mudra);
+.feature-step:hover {
+  border-color: var(--border-warm);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-warm);
 }
 
-.feature-card:hover {
-  border-color: var(--border-gold);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glow);
-}
-
-.feature-card:hover::before {
-  opacity: 1;
-}
-
-.feature-icon {
+.step-number {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--terracotta);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--border-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: var(--space-xs);
-  opacity: 0.9;
 }
 
-.feature-title {
+.step-icon {
+  opacity: 0.8;
+}
+
+.step-title {
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 700;
@@ -91,64 +74,38 @@
   line-height: 1.3;
 }
 
-.feature-title-hi {
-  font-size: 0.68rem;
-  opacity: 0.4;
-  margin-top: -2px;
-}
-
-.feature-desc {
+.step-desc {
   font-size: 0.82rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 
-/* ── Step Badge ─────────────────────────────────────────────────────────── */
-.feature-step-badge {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--saffron-glow), transparent);
-  border: 1px solid var(--border-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: var(--gold-foil);
-}
-
-
-/* ── Mobile ─────────────────────────────────────────────────────────────── */
+/* ── Mobile — stack vertically ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .features-grid {
+  .features-steps {
     grid-template-columns: 1fr;
     gap: var(--space-md);
   }
-  .feature-card {
+  .feature-step {
     flex-direction: row;
-    text-align: left;
-    padding: var(--space-lg);
-    border-radius: var(--radius-lg);
+    align-items: flex-start;
     gap: var(--space-md);
+    padding: var(--space-lg);
   }
-  .feature-icon {
+  .step-number {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
     margin-bottom: 0;
-    flex-shrink: 0;
   }
-  .feature-step-badge {
-    top: 50%;
-    transform: translateY(-50%);
+  .features-title {
+    text-align: center;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .features-section {
-    padding: var(--space-xl) var(--space-md) var(--space-2xl);
+    padding: var(--space-2xl) var(--space-md) var(--space-3xl);
   }
 }

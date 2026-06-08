@@ -23,8 +23,8 @@ const StatusBar: React.FC<StatusBarProps> = ({ status, error, isProcessing }) =>
               </div>
             ) : (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="var(--indian-green)" strokeWidth="2"/>
-                <path d="M8 12L11 15L16 9" stroke="var(--indian-green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="12" cy="12" r="10" stroke="var(--success)" strokeWidth="2"/>
+                <path d="M8 12L11 15L16 9" stroke="var(--success)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             )}
           </div>
@@ -47,9 +47,9 @@ const StatusBar: React.FC<StatusBarProps> = ({ status, error, isProcessing }) =>
         <div className="status-card status-card--error">
           <div className="status-card-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="var(--pomegranate)" strokeWidth="2"/>
-              <line x1="8" y1="8" x2="16" y2="16" stroke="var(--pomegranate)" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="16" y1="8" x2="8" y2="16" stroke="var(--pomegranate)" strokeWidth="2" strokeLinecap="round"/>
+              <circle cx="12" cy="12" r="10" stroke="var(--error)" strokeWidth="2"/>
+              <line x1="8" y1="8" x2="16" y2="16" stroke="var(--error)" strokeWidth="2" strokeLinecap="round"/>
+              <line x1="16" y1="8" x2="8" y2="16" stroke="var(--error)" strokeWidth="2" strokeLinecap="round"/>
             </svg>
           </div>
           <div className="status-card-content">

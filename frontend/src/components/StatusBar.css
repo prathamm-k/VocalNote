@@ -3,7 +3,7 @@
   max-width: 640px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
-  animation: floatUp var(--duration-base) var(--ease-mudra) both;
+  animation: fadeSlideUp var(--duration-base) var(--ease-out) both;
 }
 
 .status-card {
@@ -17,18 +17,18 @@
 }
 
 .status-card--processing {
-  border-color: rgba(255, 153, 51, 0.25);
-  background: linear-gradient(135deg, rgba(255, 153, 51, 0.05), var(--bg-card));
+  border-color: rgba(194, 112, 62, 0.2);
+  background: linear-gradient(135deg, rgba(194, 112, 62, 0.03), var(--bg-card));
 }
 
 .status-card--success {
-  border-color: rgba(19, 136, 8, 0.3);
-  background: linear-gradient(135deg, rgba(19, 136, 8, 0.06), var(--bg-card));
+  border-color: rgba(45, 122, 58, 0.25);
+  background: linear-gradient(135deg, rgba(45, 122, 58, 0.04), var(--bg-card));
 }
 
 .status-card--error {
-  border-color: rgba(198, 40, 40, 0.3);
-  background: linear-gradient(135deg, rgba(198, 40, 40, 0.06), var(--bg-card));
+  border-color: rgba(184, 58, 58, 0.25);
+  background: linear-gradient(135deg, rgba(184, 58, 58, 0.04), var(--bg-card));
 }
 
 .status-card-icon {
@@ -43,13 +43,13 @@
 
 .status-message {
   font-family: var(--font-display);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .status-message--error {
-  color: #ef5350;
+  color: var(--error-light);
 }
 
 /* ── Diya Flame Animation ───────────────────────────────────────────────── */
@@ -63,16 +63,16 @@
 .diya-flame {
   width: 8px;
   height: 12px;
-  background: radial-gradient(ellipse, var(--gold-light), var(--saffron), transparent);
+  background: radial-gradient(ellipse, var(--terracotta-light), var(--terracotta), transparent);
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   animation: flameFlicker 0.8s ease-in-out infinite alternate;
-  box-shadow: 0 0 8px var(--diya-glow), 0 0 20px rgba(245, 166, 35, 0.2);
+  box-shadow: 0 0 8px var(--terracotta-glow), 0 0 16px rgba(194, 112, 62, 0.15);
 }
 
 .diya-body {
   width: 16px;
   height: 6px;
-  background: linear-gradient(to bottom, var(--terra-cotta), var(--rosewood));
+  background: linear-gradient(to bottom, var(--clay), var(--bark));
   border-radius: 0 0 50% 50%;
   margin-top: -2px;
 }
@@ -107,8 +107,8 @@
 
 .progress-track {
   width: 100%;
-  height: 4px;
-  border-radius: 100px;
+  height: 3px;
+  border-radius: var(--radius-pill);
   background: var(--surface-1);
   overflow: hidden;
 }
@@ -116,33 +116,19 @@
 .progress-fill {
   height: 100%;
   width: 35%;
-  border-radius: 100px;
-  background: linear-gradient(90deg, var(--saffron), var(--gold-foil), var(--indian-green));
-  animation: indeterminateProgress 2s var(--ease-mudra) infinite;
-}
-
-@keyframes indeterminateProgress {
-  0% {
-    transform: translateX(-100%);
-    width: 35%;
-  }
-  50% {
-    width: 50%;
-  }
-  100% {
-    transform: translateX(350%);
-    width: 35%;
-  }
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--terracotta), var(--brass), var(--olive));
+  animation: indeterminateSlide 2s var(--ease-in-out) infinite;
 }
 
 .progress-hint {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   margin-top: var(--space-xs);
 }
 
 /* ── Mobile ─────────────────────────────────────────────────────────────── */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .status-bar-wrapper {
     padding: 0 var(--space-md);
   }

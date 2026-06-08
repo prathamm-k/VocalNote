@@ -5,8 +5,14 @@
 }
 
 .footer-inner {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
+}
+
+.footer-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin-bottom: var(--space-2xl);
 }
 
 .footer-content {
@@ -14,28 +20,24 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-xl) 0;
+  padding-bottom: var(--space-xl);
 }
 
 .footer-brand {
   display: flex;
-  align-items: baseline;
-  gap: var(--space-sm);
+  align-items: center;
+  gap: 6px;
 }
 
 .footer-logo {
   font-family: var(--font-display);
   font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.footer-logo-hi {
-  font-size: 0.75rem;
-  opacity: 0.4;
+  font-weight: 800;
+  letter-spacing: var(--letter-tight);
 }
 
 .footer-desc {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
   text-align: center;
 }
@@ -50,11 +52,11 @@
 }
 
 .tech-badge {
-  padding: var(--space-xs) var(--space-sm);
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
   background: var(--surface-1);
   border: 1px solid var(--border-subtle);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-family: var(--font-body);
   font-weight: 500;
   color: var(--text-secondary);
@@ -65,20 +67,15 @@
 /* ── Copyright ──────────────────────────────────────────────────────────── */
 .footer-copy {
   text-align: center;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   padding-top: var(--space-md);
   border-top: 1px solid var(--border-subtle);
 }
 
-.footer-heart {
-  display: inline-block;
-  animation: diyaPulse 3s ease-in-out infinite;
-}
-
 
 /* ── Mobile ─────────────────────────────────────────────────────────────── */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .vaak-footer {
     padding: 0 var(--space-md) var(--space-lg);
   }

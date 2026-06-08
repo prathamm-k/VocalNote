@@ -1,7 +1,10 @@
 misc./docs
 .gemini
+.agents
 .vscode
 .env
 .opencode
 .github/*.md
 .DS_Store
+AGENTS.md
+skills-lock.json

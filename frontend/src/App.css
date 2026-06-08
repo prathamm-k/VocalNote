@@ -1,5 +1,5 @@
 /* =========================================================================
-   VaakPod — App Layout & Background Patterns
+   VocalNote — App Layout & Background
    ========================================================================= */
 
 .vaak-app {
@@ -10,18 +10,29 @@
   overflow-x: hidden;
 }
 
-/* Subtle patterned background */
+/* Subtle warm ambient glow — single source, barely visible */
 .vaak-app::before {
   content: '';
   position: fixed;
   inset: 0;
   background:
-    /* Radial glow accents */
-    radial-gradient(ellipse 600px 400px at 15% 20%, rgba(255, 153, 51, 0.04), transparent),
-    radial-gradient(ellipse 500px 500px at 85% 60%, rgba(63, 81, 181, 0.03), transparent),
-    radial-gradient(ellipse 400px 300px at 50% 90%, rgba(19, 136, 8, 0.025), transparent);
+    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(194, 112, 62, 0.03), transparent),
+    radial-gradient(ellipse 600px 400px at 80% 70%, rgba(107, 124, 82, 0.02), transparent);
   pointer-events: none;
   z-index: 0;
+}
+
+/* Grain texture overlay — breaks digital flatness */
+.vaak-app::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 .vaak-main {
@@ -30,10 +41,9 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
-/* ── Smooth page transitions ────────────────────────────────────────────── */
 .vaak-main > * {
   position: relative;
   z-index: 1;
