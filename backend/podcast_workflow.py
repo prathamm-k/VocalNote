@@ -27,19 +27,6 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
-def download_model_if_missing(model_path: Path, url: str):
-    """Downloads the model from the URL if it doesn't exist locally."""
-    if not model_path.exists():
-        print(f"\nModel not found at {model_path}.")
-        print(f"Downloading from {url}...")
-        print("This is a large file and might take a few minutes depending on your internet connection.")
-        
-        # Ensure the folder exists
-        model_path.parent.mkdir(parents=True, exist_ok=True)
-        
-        # Download the file
-        urllib.request.urlretrieve(url, str(model_path))
-        print(f"Successfully downloaded {model_path.name}!\n")
 
 class PodcastPipeline:
     def __init__(self):
@@ -53,8 +40,8 @@ class PodcastPipeline:
         self.model_path_preprocess = Path("models") / "Qwen3-1.7B-Q8_0.gguf"
         self.model_path_transcript = Path("models") / "qwen2.5-3b-instruct-q4_k_m.gguf"
         # Auto-download models if they are missing
-        download_model_if_missing(self.model_path_preprocess, "https://huggingface.co/Qwen/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q8_0.gguf?download=true")
-        download_model_if_missing(self.model_path_transcript, "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf?download=true")
+        self.download_model_if_missing(self.model_path_preprocess, "https://huggingface.co/Qwen/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q8_0.gguf?download=true")
+        self.download_model_if_missing(self.model_path_transcript, "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf?download=true")
         
         # Hardware Auto-detection & Threading Optimization
         self.detect_device()
@@ -101,6 +88,21 @@ class PodcastPipeline:
                 print("Detected macOS on Intel, or MPS is unavailable. Falling back to CPU only.")
         else:
             print("Detected non-macOS hardware. Falling back to CPU only.")
+
+    
+    def download_model_if_missing(self, model_path: Path, url: str):
+    #Downloads the model from the URL if it doesn't exist locally."""
+        if not model_path.exists():
+            print(f"\nModel not found at {model_path}.")
+            print(f"Downloading from {url}...")
+            print("This is a large file and might take a few minutes depending on your internet connection.")
+            
+            # Ensure the folder exists
+            model_path.parent.mkdir(parents=True, exist_ok=True)
+            
+            # Download the file
+            urllib.request.urlretrieve(url, str(model_path))
+            print(f"Successfully downloaded {model_path.name}!\n")
 
 
 

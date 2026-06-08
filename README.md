@@ -55,14 +55,32 @@ The frontend (located in the [frontend/](file:///Users/prathamkairamkonda/Develo
 
 ## Setup & Installation
 
-### Prerequisite Models
-Before launching the application, you must place the required local GGUF models in the [backend/models/](file:///Users/prathamkairamkonda/Developer/Projects/NoteBookQwen-CPU/backend/models) directory:
-1.  **Preprocessing Model:** `Qwen3-1.7B-Q8_0.gguf`
-2.  **Transcript Model:** `qwen2.5-3b-instruct-q4_k_m.gguf`
+First, clone the repository to your local machine:
+```bash
+git clone https://github.com/prathamm-k/VocalNote.git
+cd VocalNote
+```
 
-*The Kokoro TTS weights (`Kokoro-82M`) are loaded automatically on first use via the Python library.*
+You can run VocalNote using either **Docker** (recommended) or via a **Traditional Local Setup**. Both methods will automatically download the required 4GB LLM models to your `~/Downloads/VocalNote_models` folder on the first run, keeping your repository lightweight!
 
-### 1. Backend Setup (FastAPI)
+### Option A: Docker Setup (Recommended)
+The easiest way to run the application is using Docker. This avoids needing to install Python, Node.js, or manage virtual environments.
+
+1. Ensure [Docker Desktop](https://www.docker.com/products/docker-desktop/) is installed and running.
+2. In the root of the project, run:
+```bash
+docker compose up --build
+```
+3. Docker will build the containers, auto-download the models to your PC, and start both servers.
+4. Open [http://localhost:2000](http://localhost:2000) in your browser.
+
+*Note: Changes made to the code will instantly reflect in the running containers thanks to live volume mounting.*
+
+### Option B: Traditional Local Setup
+
+If you prefer to run the services manually in your terminal:
+
+**1. Backend Setup (FastAPI)**
 Activate the virtual environment, install dependencies, and run the backend server:
 ```bash
 cd backend
@@ -74,8 +92,8 @@ uvicorn api:app --reload --host 0.0.0.0 --port 9000
 ```
 *The FastAPI backend will run at `http://localhost:9000`.*
 
-### 2. Frontend Setup (React + Vite)
-Install dependencies and spin up the Vite development server:
+**2. Frontend Setup (React + Vite)**
+Open a **second terminal window**, install dependencies, and spin up the Vite development server:
 ```bash
 cd frontend
 npm install
@@ -130,7 +148,7 @@ NoteBookQwen-CPU/
 ## Troubleshooting & FAQ
 
 *   **Llama-cpp / Kokoro Error (Apple Silicon):** Ensure that your PyTorch/Metal tools are correctly configured. If Metal acceleration is active, you will see `Detected Apple Silicon (arm64). Enabling Metal & MPS acceleration.` in the backend server logs.
-*   **Model Files Missing:** Make sure both GGUF files are placed inside the `backend/models/` folder and match the filenames exactly:
+*   **Model Files Missing:** VocalNote attempts to automatically download models to the `models/` directory (or `~/Downloads/VocalNote_models` if running via Docker). If the auto-download fails, manually download the models and place them in the correct folder:
     *   `Qwen3-1.7B-Q8_0.gguf`
     *   `qwen2.5-3b-instruct-q4_k_m.gguf`
 *   **Backend Unreachable:** If the React interface shows a connection error, verify that the FastAPI backend is running on port `9000` (`uvicorn api:app ...`).
