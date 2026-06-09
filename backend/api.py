@@ -10,6 +10,7 @@ from typing import Optional
 import tempfile
 import logging
 import traceback
+from fastapi.staticfiles import StaticFiles
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +28,18 @@ app.add_middleware(
 # Initialize the podcast pipeline
 pipeline = PodcastPipeline()
 
+# --------------------------
+# SERVE FRONTEND
+# --------------------------
+app.mount("/assets", StaticFiles(directory="dist/assets"), name="assets")
+
+@app.get("/")
+async def serve_frontend():
+    return FileResponse("dist/index.html")
+
+# --------------------------
+# UPLOAD PDF
+# --------------------------
 @app.post("/upload-pdf")
 async def upload_pdf(file: UploadFile = File(...)):
     try:

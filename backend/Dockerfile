@@ -15,6 +15,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Ensure server dependencies are installed
 RUN pip install --no-cache-dir fastapi uvicorn python-multipart
 
+# Explicitly install the CPU version of llama-cpp-python for Docker environments
+RUN pip install llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+
 # Copy application code
 COPY . .
 

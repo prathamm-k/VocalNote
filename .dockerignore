@@ -1,0 +1,17 @@
+# Ignore Node modules
+frontend/node_modules/
+
+# Ignore Python virtual environments and cache
+backend/venv3.11/
+backend/__pycache__/
+*.pyc
+
+# 🔥 CRITICAL: Ignore the massive models so they don't get copied into the image!
+backend/models/
+backend/resources/
+
+# Ignore git and IDE files
+.git/
+.vscode/
+.opencode/
+.DS_Store
